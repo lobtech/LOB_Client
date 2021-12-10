@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,7 +15,7 @@ public class ChangeButtonPic : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        
+
         ///Listen for click events
         transform.GetComponent<Button>().onClick.AddListener(OnClick);
         ///Gets the initial default image of the button
