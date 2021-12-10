@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Unity WebGL Player | %UNITY_WEB_NAME%</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="style.css">
+    <script src="UnityProgress.js"></script>
+    <script src="%UNITY_WEBGL_LOADER_URL%"></script>
+    <script src="web3Connect.js"></script>
+    <script>
+        var gameInstance = UnityLoader.instantiate("gameContainer", "%UNITY_WEBGL_BUILD_URL%", { onProgress: UnityProgress });
+    </script>
+
+
+    <!--Import the morals.js and web3.min.js scripts into the current HTML web page  -->
+    <script src="https://unpkg.com/moralis/dist/moralis.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+
+
+    <!--Get the server address and application ID from your own server -->
+    <script>
+        const serverUrl = 'https://xjv5slyhgxig.usemoralis.com:2053/server';
+        const appId = 'NdBbMPb9vboWFnm1nRSp8CsvZYsTkmNQ8oKLuzcZ';
+        //Initializing the server
+        Moralis.start({ serverUrl, appId })
+        console.log(Moralis)
+        Moralis.Web3.authenticate()
+    </script>
+</head>
+<body>
+    <div class="webgl-content">
+        <div id="gameContainer" style="width: 960px; height: 600px"></div>
+        <div class="footer">
+            <div class="webgl-logo"></div>
+            <div class="fullscreen" onclick="gameInstance.SetFullscreen(1)"></div>
+            <div class="title">%UNITY_WEB_NAME%</div>
+        </div>
+    </div>
+</body>
+</html>
